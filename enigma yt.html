@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigmas</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+        input {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        h1, p {
+            text-align: center;
+        }
+        .hidden {
+            font-size: 0.1px;
+            color: #111;
+        }
+        .code {
+            font-family: monospace;
+            background-color: #222;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        section {
+            display: none;
+        }
+        section.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo" class="logo">
+
+    <!-- Página 1 -->
+    <section id="pagina1" class="active">
+        <h1 class="code">.- -. -.-. --- -. - .-. --- ... / ...- . .-.. .- -.. --- ... / ... ..- ... ... ..- .-. .- --</h1>
+        <input type="text" id="senha1" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha1', 'encontros velados susuram', 'pagina2')">Entrar</button>
+    </section>
+
+    <!-- Página 2 -->
+    <section id="pagina2">
+        <h1 class="code">01001110 01100001 00100000 01110000 01100101 01101110 01110101 01101101 01100010 01110010 01100001</h1>
+        <input type="text" id="senha2" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha2', 'na penunbra', 'pagina3')">Entrar</button>
+    </section>
+
+    <!-- Página 3 -->
+    <section id="pagina3">
+        <h1>Bem-vindo à Página Final você conseguiu</h1>
+        <p>parabens:)!</p>
+    </section>
+
+    <!-- Página 4 -->
+    <section id="pagina4">
+        <h1>5TjkpUoR74Qpmz9n3Ket
+          8dyVz2w_eifycSGvjwGnBbE</h1>
+        <p class="hidden">Confiesomenteemmim</p>
+        <input type="text" id="senha4" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha4', 'iluminados apenas pela lua', 'pagina5')">Entrar</button>
+    </section>
+
+    <!-- Página 5 -->
+    <section id="pagina5">
+        <h1>Áudio de um código morse</h1>
+        <p>(Ainda não programado 😢)</p>
+        <button onclick="irParaProximaPagina('pagina6')">OK</button>
+    </section>
+
+    <!-- Página 6 -->
+    <section id="pagina6">
+        <h1>Escute a minha "voz" e ache o meu nome.</h1>
+        <a href="https://youtu.be/vJPbJIxCEWs" target="_blank">Link</a>
+        <input type="text" id="senha6" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha6', 'ibm 7094', 'pagina6_1')">Entrar</button>
+    </section>
+
+    <!-- Página 6.1 -->
+    <section id="pagina6_1">
+        <h1>Continuação da fase anterior</h1>
+        <p>Esse é o meu nome, notastes mais alguma coisa?</p>
+        <input type="text" id="senha6_1" placeholder="Digite a senha">
+        <button onclick="verificarSenha6_1()">Entrar</button>
+    </section>
+
+    <!-- Página 7 -->
+    <section id="pagina7">
+        <h1 class="code">.... ...  .. ....  ... .  ... ...  . ...  .. ....  ... ....</h1>
+        <input type="text" id="senha7" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha7', 'silêncio', 'pagina8')">Entrar</button>
+    </section>
+
+    <!-- Página 8 -->
+    <section id="pagina8">
+        <h1>Érbio, Cloro, Oxigênio, Argônio, Manganês, Molibdênio, Érbio, Manganês, Oxigênio, Rênio, Iodo, Actínio, Sódio, Oxigênio, Cloro, Urânio, Lítio, Tântalo, Argônio, Silício.</h1>
+        <input type="text" id="senha8" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha8', 'ecoam memórias ocultas', 'pagina9')">Entrar</button>
+    </section>
+
+    <!-- Página 9 -->
+    <section id="pagina9">
+        <h1 style="font-family: 'Courier New', Courier, monospace;">3.914 7.500</h1>
+        <p>Analog Horror</p>
+        <input type="text" id="senha9" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha9', 'desligue a sua televisão agora', 'pagina10')">Entrar</button>
+    </section>
+
+    <!-- Página 10 -->
+    <section id="pagina10">
+        <h1>Preste atenção a tudo que está a sua volta</h1>
+        <p>Preste atenção nos detalhes da imagem.</p>
+        <div id="imageContainer" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <!-- Imagem -->
+            <div id="imagePlaceholder" style="width: 100%; height: 300px; display: flex; justify-content: center; align-items: center;">
+                <img src="caminho_da_imagem.jpg" alt="Imagem" style="transform: rotate(270deg); max-width: 100%; max-height: 100%;">
+            </div>
+        </div>
+        <input type="text" id="senha10" placeholder="Digite a senha">
+        <button onclick="verificarSenha('senha10', 'nada é o que parece', 'pagina3')">Entrar</button>
+    </section>
+
+    <!-- Página 11 -->
+<section id="pagina11">
+    <h1>É mais facil doque parece</h1>
+    <p>Contém um feitiço proibido que transforma as sombras em armas mortais.</p>
+    <p>Abre o caminho para um local de nascimento.</p>
+    <p>Um Amuleto vivo que nasceu no intestino de uma Flukemarm.</p>
+    <p>Contém a paixão, a habilidade e os arrependimentos de um Mestre do Ferrão.</p>
+    <p>As crias não desejam comer e nem viver, e se sacrificarão para proteger o seu progenitor.</p>
+    <p>Sente a dor do seu portador e ataca o mundo ao seu redor.</p>
+    <input type="text" id="senha11" placeholder="Digite a senha">
+    <button onclick="verificarSenha('senha11', 'sangue', 'pagina12')">Entrar</button>
+</section>
+    
+   <!-- Página 12 -->
+<section id="pagina12">
+    <h1>Reconheço que você pode se complicar, a dica estará aqui se quiser ajuda ⬇️</h1>
+    
+    <!-- Botão de Dica -->
+    <button onclick="mostrarDica()">Dica</button>
+    
+    <!-- Dica Exibida -->
+    <p id="dicaTexto" style="display: none;">Baldi's Basic primeira porta à esquerda ⬅️ kk</p>
+    
+    <!-- Imagem -->
+    <div id="imagePlaceholder" style="width: 100%; height: 300px; display: flex; justify-content: center; align-items: center;">
+        <img src="pagina13.jpg" alt="Imagem" style="transform: rotate(0deg); max-width: 100%; max-height: 100%;">
+    </div>
+    
+    <!-- Resposta -->
+    <input type="text" id="senha12" placeholder="Digite a resposta">
+    <button onclick="verificarSenha('senha12', 'além da visão', 'pagina13')">Entrar</button>
+</section>
+
+<script>
+    // Função para mostrar a dica
+    function mostrarDica() {
+        document.getElementById('dicaTexto').style.display = 'block';
+    }
+</script>
+    <!-- Página 13 -->
+<section id="pagina13">
+    <h1>Pela ordem dos gringos</h1>
+    
+    <!-- Áudio -->
+    <audio controls>
+        <source src="AUD-20241103-WA0019.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+    
+    <!-- Resposta -->
+    <input type="text" id="senha14" placeholder="Digite a resposta">
+    <button onclick="verificarSenha('senha14', 'bagdá', 'pagina15')">Entrar</button>
+</section>
+    
+    <script>
+        function verificarSenha(inputId, senhaCorreta, proximaPagina) {
+            const senhaInserida = document.getElementById(inputId).value.trim();
+            const normalizar = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+            if (normalizar(senhaInserida) === normalizar(senhaCorreta)) {
+                document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+                document.getElementById(proximaPagina).classList.add("active");
+            } else {
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+
+        function verificarSenha6_1() {
+            const senhaInserida = document.getElementById("senha6_1").value.trim();
+            const normalizar = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+            const senhasValidas = ["vai mingal", "miguel", "mingal"];
+            const senhaFnf = "fnf";
+
+            if (normalizar(senhaInserida) === normalizar(senhaFnf)) {
+                alert("Você está no caminho certo. Preste mais atenção. Lembre-se das nossas brincadeiras na escola e etc.");
+            } else if (senhasValidas.some(senha => normalizar(senhaInserida) === normalizar(senha))) {
+                irParaProximaPagina("pagina7");
+            } else {
+                alert("Senha incorreta. Tente novamente.");
+            }
+        }
+
+        function irParaProximaPagina(proximaPagina) {
+            document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+            document.getElementById(proximaPagina).classList.add("active");
+        }
+    </script>
+</body>
+</html>
